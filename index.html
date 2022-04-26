@@ -1,0 +1,2049 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <link rel="canonical" href=""/>
+    <meta name="applicable-device" content="pc">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta name="csdn-baidu-search" content="{}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="report" content='{"pid":"tags","spm":"1000.2123"}'>
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate" media="handheld" href="#"/>
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <meta name="csdn-baidu-search" content=''>
+    <title>es和ds关系 汇编 - CSDN</title>
+    <link href="https://g.csdnimg.cn/static/logo/favicon32.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="keywords" content="es和ds关系 汇编">
+    <meta name="description" content="csdn已为您找到关于es和ds关系 汇编相关内容，包含es和ds关系 汇编相关文档代码介绍、相关教程视频课程，以及相关es和ds关系 汇编问答内容。为您解决当下相关问题，如果想了解更详细es和ds关系 汇编内容，请点击详情链接进行了解，或者注册账号与客服人员联系给您提供相关内容的帮助，以下是为您准备的相关内容。">
+    <meta name="csdnFooter" content='{"type": "3", "el": ".persion_article"}'>
+    <link rel="stylesheet" href="//csdnimg.cn/public/common/libs/bootstrap/css/bootstrap.css">
+    <script src="https://g.csdnimg.cn/??lib/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://g.csdnimg.cn/collection-box/2.0.4/collection-box.js"></script>
+    <script src="//g.csdnimg.cn/common/csdn-login-box/csdn-login-box.js" type="text/javascript"></script>  
+    <script>
+        window.csdn = window.csdn ? window.csdn : {};
+        window.csdn.toolbarIsBlack = false;
+    </script>
+    <script src="//g.csdnimg.cn/fixed-sidebar/1.1.6/fixed-sidebar.js" type="text/javascript"></script>
+    <script src="//g.csdnimg.cn/common/csdn-report/report.js" type="text/javascript"></script>
+    <script src="//g.csdnimg.cn/baidu-search/1.0.10/baidu-search.js" type="text/javascript"></script>
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview {
+            display: none
+        }
+    </style>
+</head>
+<body>
+<link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+<script id="toolbar-tpl-scriptId" src="https://g.csdnimg.cn/common/csdn-toolbar/csdn-toolbar.js" type="text/javascript">
+</script>
+
+<link rel="stylesheet" href='https://csdnimg.cn/release/aggregate/css/pc_old-dc266a9888.min.css'>
+<link rel="stylesheet" href='https://csdnimg.cn/release/aggregate/css/pc_common_old-0599501ff5.min.css'>
+<style type="text/css">
+    .qa-item .qa-item-ft .icon {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: sub;
+        margin-right: 6px;
+        background-repeat: no-repeat;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABgCAYAAACtxXToAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAQKADAAQAAAABAAAAYAAAAACHkG20AAAPT0lEQVR4Ae1cfYxU1RW/583MsghlAwIqEm1VqB9VQLA1JTQgpBTLAgvsNsIqHzs7a9I/TCVSVGwxpAjWUmvSpju7sEsQMPshrCttapGipU1tLIgGJH6laalo3LJUhP2Yee/2d+6b9/bNzJuZN7Mz2ybMzb5999177vndc+73ufeOEEV3eWuAchW/vnn/jdQf2SZJzAQT/jvs92kb165d9lGuPLNJJ5csuVHo+jakmSmIWI7DIhDYSO3tWeHnpIBwuGUqRD4qpRiRkOkuEv6ZodDS9xLC8/oJ4adC+KNgmoQv/P6ZtH+/Z3wtp5yRqFfCk9grhvsmBPwl10GTh8BrrBTR7TnxzCaRrteDPFF45jAWiskKP+sasGvXi1f29kW7UOnOBfzjrl2zZk4vI+/a1XJtbx+9h/DhckTp+LoV5V0cnm8nKyquFNFoOt5SjBw5nvbtS0djZyvrGtDfH53CqVEDTljC8/eqVVX/QuhpKSVpF3uu57CCuKiJn4Y3iR7v+FkrwBA0TYGTOJ2YCVSnMxwmNXFtYlzevimGn46hYXjGz1oBKPpVjE1S/D45D3RJhUm6IjkubyEKPwM3z/hZKSDc2HI/gG9HO/940qRxncmZkNeoME2eTY4bfAh6//tRALdn5OTzecb3Z2QWI6hvartZRI1n1aek9XPmzIkmppWCrkIDEKRr3fWdnXYpjO7pkVVVVT2J9Nl8y2XLbhb9/SZ+poS63i1DIRtfdHdLam11xc84CrS0tPi6P6elJOWz6PgmoPT3h2qrlrrlIdzQwnODmW5xCOvC3KF1dJlYD2V8kYImKVhWVvpEXx/jPYvSn5BE4D0A+NQqhg1bD2XY+EkKqH/zzQAd+/tkIjldCvkt8F8IoVCyarp3KBAYV+7s/Z34jY1t03Qpd5CQkzEY2LzBSwOPUkVL4nVx9fAFdeXlZn/hZAA/Si4gzp6dLDRtOgRW+Hgr/ATS3D6JgH/1AgqHFb6dyZ07W26N6iKMjH8D2UhsGqc0Er8IBisbMes0ckE2lWPsQwv5Kmm0LRSs3ODkIxcvvhWChvEAXyTiO0kH79e0bdTRofDtTjAaFc1m9ZUayu4DruoohYf9Pv/UulDVbbW1VeFcheccB4PLj/uIvs9+acjv8TvOGUYzhOfmU1jhGVQO4A+AkbgTpSNGXDFydHX1vZ/HZS5PH6NGyTe6z6Mpkbg6iSUR8JGBoXBS2vh2DUC2lH/lygUXCpWH8+e165k35PwkCUNi+jRUjsjGTwuKXv0gP3nLlya4ffPq9a+eeGragyCeBNp/eKL3TmTjp1UASupefrzzzUQp72YKDBB/yUSp4qdNa6CXXvoA/lc80XslcuDbCuBFjNf0udKh81MK8JPhpoAkfNq0yRxxchx5UuZT02x8WwEWMapnQXoiTKhGAuM2PBFNG3fcwhvyN1FElJXZ+EkKKFSGui/47gJvTCfEW6kmUoXCjuMr5VvU3NxrhQ2ZAkgaqvqjU7Orn5WJIX07qj/jDpkCMMdQIwDeb3gVWG7aZOYvn0OklHH4AxMhl1xhwvIbjAJ56hNiI0CJ33sNOH68Vi5a9ComDt92yV5uQQk1IK0CsOr7bm4o8amamvZ/uT8SuQqhXXWrKz6Mj03zZRi/ThObS1QXHTgQhz8kTaBfj86L5Tau+uUiwaDSECXh2zWAhz+eC/ByODR9uu4BKGPTaG4+Mqxf//d3wHk7E2ukvZCGL5MkzQXS0OcSlYRvA9aHW94Gx8zmplxgkQYK7qgNLq9INc9AW38bbb1g+MhAh+joSMK3mwAFfDXI3EnklWdfaR8WwssDsaPoSN8jQRsm3TR2eSrhlU79/hpk8iQeGJ4zPJhNI42XJwpevEu0Qdx5Z3p8lYniv6IGihq43DRgjwIseEND+0QpjKcx+5uNPsbc5MibRugsOsQjJLT1tbXLzrixlUuXTsTG59OIm40RIb/4RLxZcgTb5+vpxRdtfFsBpvD6CQg/xi1z+QqDEs6R8E1JVIISPhI5AZyC4oP/ORykmGIpwZ4IxUp+DIas3xJpocQMDlYBSsHSgNldLhBkcCmviONplnyhhWfIMbFapvDteYBZ7XnCkn/hGZUVyrzZb2Gx3+FmO/yF9tpYtgKsNp/vkndKMsDbpX3nu807gRP9DiyHAhKpLo/vogIuj3JOLWWxBqTWzeURU6wBl0c5p5bSngmmJjFjeJMUExhP+4RsTc6XQdXOF2+U8l6htV1mR8R7lCkd1mTh0aBakCYARbG1Jr9OylczCc+Aiga0XsE914C8l6jXHFp0EEqWl7+izGVWmNubN1Gy2EfwrAA3rCEOuw54QV5I5NMVpAnkM4OF5lVUQKE1/P/Ov1gDBkpI2cyUXXAgLL8+tgqZHE2sOO6mzS4uqGAfDiy7BrDBkgElzFYDGc1fFiyTGHO0sBK4H0n4LuSnjWUPg2ytxTHv+Wyzk1L/J/YKXTJApzWS1Tg1+jcrsqnpD6URvetxaYgay6pkxTnfhjT3W02jKLASHay1IhKZj+BC2wXPsWXYgrdrgLLZwVqL/bt9KKMU5+3lzRiGf2YlbmxsnRuJfvYOTn9tTCe8Sc9mcdrnZhHmeGWlhbUW1WMfnhT4FnIOb+bJvB0WYYXrldXOne03RKL6h2DyUWmJ7+t9/fp21JYHYunf0cjHlmTvpz+8AsfocF/gBtwXiDvcYLMgegdtN0SdnVnj203AZpbJI+V43Bo7DbKxeHpw8nuznPqVZ2pnzIhkSpr3eKIe8NyM4+/P4Ph7TvieFaDrujUH5fN+I7GjckiWBB4MZXPkZTAa6O+38E0uRIdwmv3BxCMv2UJ4VoBRhh2d/9AFVPs+HKt+OBSs2p0t2KDoS0vP4ebIBVT1PuHzPQzBhxafM49LFeOcd4EGJVAOiXF9ZlzcXaAceBSTFDVQ1EBRA0UNODRgH5BwhLl6MfxpDU2ts0RUVOBu6C2Y+vLKbiKmt+Ahz8B/BuHvYmw+MPpL+uu4HOnlsKUrllugsvaeODELvw9QgaHwFsxIJ+I9EW9cUwQ+0Rm838X7AC5Hvo7LkZ7wMyqgfm/nWHGxdwNQqrEO4PO+Xhx+SULsIRr2VG3t4k+9JEhFI++7D/gXNyC+GgJ6xoci9iDNU7hykxY/pQJ4ldcf/WwdDNy8chrFGYSu38V0rIN8vlclyTN+I4DfDGDXNwGnbCdirngPasMipPkah4L+ImrF9uHDRm174IH5FznMq5OrV5fizu862PdtfK9pHXQXkYntuCGyjXbvdsV3VUBjY8tNhhStKPGpMWYHfZr2BF9+dDBP6W1oaLvDkMaTIFgSIzoV8IvKtWurTqVM5IjAsdmb8NmKErfwHbE5eIlOQRGVuC2ahJ+kgHC4dSH2NZ4HTBlK8AOs8lYHg8v+lAOsCDe13yUjejPS3qpqA9GaumBlazpesP0vRGafh/Bl6ehyiOPasAZNIg4/TgG431uuG0Y7mAdA3Dpi+IjgYG+RqqnzJ72/gkCroAQdPy+xIhRa7mZtEbg/XA66djyBHATMnIQI+HIFls02vq0ANm7ohjiINjwMh9a31tVWPerGEaMBwbwVRC1hCxDfAoOjkzhdtgP2AL5cHb9qMwkEatZGpNkM2qjQ5JK6YBWwBhx+HGEuengOGzYQWhAfH6Begpqg8JUCGho6rjJk/9sQaDxWetux0lvnBl2/u/0a6tWfR9+Azi7ZoYQPy1Jfdd39y1wtOvj9oSehnR+BLu6sINo89+58XH58MleXEKI/QoifYlX4porV9RlI+wieWS7UbkH2WUFlEjNk3w4WHqXzSm1N5SNuKbjkLeFRymdw+WEF/4YQP+znMFaMSeN+CTMUqvoxNP4S6MYYArfFB9wOz8Jr2hYcfZ+NDq0TZrSz6oGfwzAH2TLAMq1vDOyPzUxBjY3tM3VDPwoBzvt9cjJ66s/ckobDbbU4TMlX6CG8nBIMVp1z0mHkGGNIwklTOREG1hDaeYMz3vLv2fPy6C8u9bwPga/EPf05wc7dEfiPWvFp31zyLHyKLXI1WTp27IjnmuDzzdEMQ/8Bg6J9bkslfCwebR4aE7Q+UXgO5zCOY7/ZP7Av2a1cubAbTWArxxhSPoTMKvxkSpcQVPtUwjO1iuOm4dXp+kMaJirfZHof+falT2d2eEYpHUlFNxBndY7ulLJEmr0wibvRlhW+O2VCqNXmE4LjPr3QDCS42zaL6yW2zW8gutA+TCcLDZGWP0Ys3OWVf1ZEfQmHl5NSqvtEQuuVs5OiYgEDcSZtKjrRR5VmHG5xyhh+SmJHBPf2mZwXGosHbpFq0oefp4FD+/0h2/ysuMQ3j/Mchvb9NHd4ifEcxnEcbtEm0vA3d4IQmhc3aHe+57BLo/DVd6Z/GOrs67QutCqOh0Ovjug5NQ+wDkChc/pdbbByAXr6pKqpJkCNrYfUUIeRgDs8q81zybPwagTAXAA85rnx4Hxhy20/Xkt4zoBjN3M5DNPfg3jdy/6Mjoe6adOeSOwMlfDHj2/G4umxjDyYgOgwJkNz/ewP+EVNf0QNYfOxkOFSTNIiC4SJUHVsnL8HAu8VvC0Bx3fs2LFQPBFKKXxD6yaU/hKQdmOLbJVKxP9KS2tg8j6BuMwTIRbw2LFZmDbHT4SOHctmItSNmqfw7alweGf7PJ6KooRLIMmWutrKx+0MOjyqJuQwFW5oaH0Mw95PoKYoQCtCocqXHWx5HTAPCjiIp8QZXgB/FDwrsB5Q+LYCGCi8o2URNnHb4A2gFFt8WkmwpmbxoH5VhhdD9GnPL7F7vBo1RIdyq/EjSi8wXqLDlHgRwtqghMIthmBYQdW38eMUwBmKrQh5OQwjCL1PfrE6tLbSHCmYIAu3Y0fbDN2Qzag1WDTRJfQba1KtBC22akVoGDF8KzQv70vgssa5EmSuSQrgwKamtkmRqGxDxu9QREQvo1SewFz+Lf7O5OqbWm4XUeL2vtSkpdMQfjmEP5kpLcdjJ3gS5upcExS+lzQZaHgzdzmET8J3VQAzw4+eDD9/ntahs+MOEbVBuVMQpEP4tcM+HKLAyvVjM9g0iUFhc2BJWoQwdQkaVZ6NED8vLRm1NWuTWGXlcHSMMMnF4Ztw3v8rfJjEtmZlEnPyZ6MoXep5VBpUjbLJ3Eubifmn6/ZqomRLnoyibJtgo6h3fIFfvEVnjvaem1HUqQT2o3Q9mcVxTrWjrEy89j8zi8Noi2H1Na9m8UQ5i99FDRQ1cHlp4L8KhCqc0FvyvwAAAABJRU5ErkJggg==);
+        background-size: 32px 48px;
+    }
+    .article_content img {
+        max-width: 100% !important;
+    }
+</style>
+<script type="text/javascript">
+    var mod_page = "1"
+    var mod_keywords = "es和ds关系 汇编"
+
+    var encodestr = window.location.pathname;
+
+
+    var insert_baidu_first = false;
+    var insert_baidu_count = 2;
+
+    //搜索热词
+    window.toolbarSearchExt = JSON.stringify({
+        tag: [mod_keywords],
+        title: "",
+        landingWord: [],
+        queryWord: ""
+    })
+
+    //异步加载下载资源和问答第一页的数据
+    var download_data = {};
+    var ask_data = {};
+
+    var isAsyc = "true";
+
+    (function () {
+        if(isAsyc) {
+            $.ajax({
+                url: '/gather/search_download?platform=pc&p=1&query=' + mod_keywords + '&encodestr=' + encodestr,
+                type: 'GET',
+                success: function (res) {
+                    download_data = res;
+                }
+            });
+            $.ajax({
+                url: '/gather/search_ask?platform=pc&p=1&query=' + mod_keywords + '&encodestr=' + encodestr,
+                type: 'GET',
+                success: function (res) {
+                    ask_data = res;
+                }
+            });
+        }
+    })();
+</script>
+
+    <script>
+        var isContainBaidu = "1";
+    </script>
+
+
+<div class="main-tag-container">
+    <div class="con-l-tag">
+        <div class="top-banner hide"></div>
+
+
+        <div class="content-list">
+            <div class="ag-tab-bar">
+                <div class="ag-tb-lt">
+                    <div class="tab-hd-item active" type="hot">精华内容</div>
+                    <div class="tab-hd-item" type="download"
+                         data-report-click='{"spm":"3001.5558","extend1":"聚合页下载TAB"}'>下载资源
+                    </div>
+                    <div class="tab-hd-item" type="qa" data-report-click='{"spm":"3001.5197","extend1":"聚合页问答TAB"}'>
+                        问答
+                    </div>
+                </div>
+                <div class="ag-tb-rt">
+                    <div class="tab-rt-btn">
+                        <a class="btn-ask" href="javascript:void(0);"
+                           data-report-click='{"spm":"3001.5198","dest":"https://ask.csdn.net/?word=es和ds关系 汇编"}'>我要提问</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-bd wrap-main-list active">
+                <ul class="main-ul">
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <div class="blog-title">
+                                        <span style="font-size: 18px;font-weight: 900;"><em>汇编ds和</em>ss寄存器</span>
+                                    </div>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                            </div>
+                                <div class="description">
+                                        <span style="color: #999aaa;font-size: 14px">2019-03-20 10:51:03</span>
+                                    <div class="desc-detail">
+                                        <div class='article_content'>
+                                            <p>一、DS寄存器<br /> 8086CPU寄存器都是16位的&#xff0c;数据类型有一下两种&#xff1a;<br /> 字节型数据<br /> 字型数据<br /> 16位寄存器存储一个字&#xff0c;而内存中需两个连续字节单元存储&#xff1b;任何两个连续的内存单元可以看作两个字节单元或一个字单元<br /> cpu通过cs:ip寄存器获取下条指令地址。而需要获取数据就需要通过ds寄存器&#xff0c;ds段地址寄存器存放要访问数据的段地址<br /> 2000:0000 11223344//2000&#xff1a;0000设置初始值<br /> mov bx&#xff0c;2000<br /> mov ds&#xff0c;bx//设置ds段地址寄存器值为2000<br /> mov al&#xff0c;[0]<br /> mov cx&#xff0c;[1]<br /> 以上指令将2000:0000地址单元字节型数据值读取到al寄存器&#xff0c;将2000:0001地址单元字型数据读到cx寄存器。[]表示内存单元&#xff0c;其中0表示偏移地址&#xff0c;CPU 会自动读取ds的数据作为内存单元的段地址。最终的寄存器值为&#xff1a;<br /> BX&#61;2000<br /> DS&#61;2000<br /> AX&#61;0011<br /> CX&#61;3322<br /> 同样&#xff0c;DS和CS等段地址寄存器都是相同的&#xff0c;不支持将数据直接送进段地址寄存器中&#xff0c;要通过其他寄存器中转&#xff0c;这属于硬件设计问题。<br /> 当然也可以将al、ax存向[n]//各种合理组合<br /> mov [0],al<br /> mov [2],ax<br /> add ax,[0]<br /> add [0],ax<br /> sub al,[0]//相减的结果保存到al中<br /> sub [0],ah//相减的结果保存到ds:[0]<br /> 以下指令是不合理的&#xff1a;<br /> mov ds&#xff0c;1000<br /> add ds&#xff0c;ax<br /> sub ds&#xff0c;ax<br /> …<br /> 内存中数据与命令完全没有区别&#xff1b;而寄存器中数据和命令是有区别的&#xff0c;不同寄存器保存的是不同类型数据的地址//CS保存指令数据段地址&#xff0c;DS保存操作数段地址&#xff1b;而CPU负责读取CS:IP确定下条指令存放的地址&#xff0c;读取DS得知将要处理的数据的段地址&#xff0c;根据指令中偏移地址找到具体的数据。所以说&#xff0c;汇编程序通过CPU读取寄存器寻找指令与数据&#xff0c;进行一系列的操作。<br /> 二、ss/sp栈段寄存器<br /> 在高级语言中&#xff0c;都使用过栈这种数据结构&#xff0c;在汇编这种古老的语言中&#xff0c;栈当然也是存在的。那么如何使用寄存器描述一个栈空间&#xff1f;就要用到ss和sp寄存器。对8086汇编来说&#xff0c;一次入栈/出栈的字节数都是2字节即1字。<br /> push指令&#xff1a;<br /> 1》SP-2<br /> 2》将字型数据存放到SS:SP地址中<br /> pop指令&#xff1a;<br /> 1》将SS:SP地址的字型数据取出来<br /> 2》SP&#43;2<br /> 上面步骤像是C中我们入栈前先移动栈顶指针&#xff0c;再入栈。出栈时先取出数据&#xff0c;再将栈顶指针向栈底移动//属于“满栈” 先移动Top再压栈<br /> 指令使用法则&#xff1a;<br /> push 16bit寄存器/push DS:[n] :<br /> 寄存器可以为ax\bx\cx\dx\ds\es\ss\sp…&#xff0c;8位寄存器不可以//SP-2&#xff0c;从指定寄存器/DS:[n]读取数据入栈<br /> pop 16bit寄存器/pop DS:[n] //从栈中取出数据放到寄存器/DS:[n]地址中&#xff0c;SP&#43;2<br /> //在debug中&#xff0c;ds:需要省略&#xff0c;只用一个[n]&#xff0c;CPU自动会从DS中读取栈段地址。可以从寄存器或DS:[]地址中读取数据入栈&#xff0c;但是不能“push FFFF”&#xff0c;出栈亦然<br /> 注意&#xff1a;<br /> 任意时刻&#xff0c;SS:SP指向栈顶元素//SS:SP就类似一个Top指针&#xff0c;所以说栈在哪里是由SS:SP决定的&#xff0c;但是栈大小没有严格界限&#xff0c;当SP-2&lt;0时&#xff0c;又会从FFFF开始减&#xff0c;但是不保证其权限&#xff0c;可能越界错误//不会自动判断栈满栈空。//而栈的越界问题需要程序员自己注意&#xff0c;比C更自由&#xff0c;但更不安全<br /> mov ax&#xff0c;2000<br /> mov ss&#xff0c;ax<br /> mov sp&#xff0c;10//IP寄存器不能直接用值修改&#xff0c;但sp寄存器可以</p> 
+<p>//就是指定栈底地址为2000:10&#xff0c;此时ss:sp&#61;2000:0010<br /> mov ax&#xff0c;1234<br /> mov bx&#xff0c;5678<br /> push ax //sp-2&#61;000E&#xff0c;2000:E与2000:F分别存放34和12<br /> push bx //sp-2&#61;000c&#xff0c;2000:c与2000:D分别存放78和56<br /> pop cx<br /> pop dx<br /> 出栈是其逆过程&#xff0c;先出值到寄存器中&#xff0c;再移动栈顶指针(修改ss:sp寄存器)<br /> 明白了CS、DS、SS寄存器&#xff0c;为数据段text、代码段code、栈段stack总结&#xff1a;<br /> 数据段&#xff1a;存放数据的段&#xff0c;段地址在DS中<br /> 代码段&#xff1a;存放代码的段&#xff0c;段地址在CS中<br /> 栈段&#xff1a;存放临时性数据的并且由SS:SP维护的段&#xff0c;段地址在S中<br /> 三、DS、SS、SP寄存器的混合使用<br /> 将10000H~1001F中的8个字&#xff0c;逆序复制到20000H中&#xff0c;如何做&#xff1a;<br /> 法一&#xff1a;<br /> 从ds:[]入栈&#xff0c;ds:[]是源(10000H~)&#xff0c;栈目标&#xff08;20000H&#xff09;<br /> mov ax&#xff0c;1000H<br /> mov ds&#xff0c;ax</p> 
+<p>mov ax&#xff0c;2000H<br /> mov ss&#xff0c;ax<br /> mov sp&#xff0c;10H<br /> //从数据段向栈段复制<br /> push [0]<br /> push [2]<br /> 。。。<br /> 法二<br /> 出栈至ds:[]&#xff0c;栈是源&#xff0c;ds&#xff1a;[]是目标<br /> mov ax&#xff0c;2000H<br /> mov ds&#xff0c;ax<br /> 设置栈段地址<br /> mov ax&#xff0c;1000H<br /> mov ss&#xff0c;ax<br /> mov sp&#xff0c;0H</p> 
+<p>pop [E]<br /> pop [C]<br /> 。。。<br /> <img src="https://img-blog.csdnimg.cn/20190320105034907.png?x-oss-process&#61;image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpeml5dW5xaQ&#61;&#61;,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" /><br /> 四、win32<br /> 在win32保护模式下&#xff0c;段寄存器(cs、ds、ss、es、fs、gs)指向各自的描述符&#xff0c;那些描述符都指向一个段起始地址(fs除外)。所以在win32编程&#xff0c;不要制定cs、ds、ss等&#xff0c;因为他们都是一样的&#xff0c;可以认为ds&#61;es&#61;ss&#61;…这就是flat的含义&#xff0c;在编程者看来&#xff0c;各个段都是平坦的&#xff0c;一样的&#xff0c;没有区别。<br /> 至于数据代码的访问属性&#xff0c;是在pe文件的节里面定义的&#xff0c;pe文件加载的时候&#xff0c;文件从磁盘映射到内存后&#xff0c;会根据节的属性修改对应内存的访问属性。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/MtTaEg0sMTY4MzItYmxvZwO0O0OO0O0O.html">汇编   </a>
+                                </div>
+                                <div style="background: #f5f6f7;height: 5px;margin: 0 -12px"></div>
+                                <div style="font-size: 16px;font-weight: 900;margin-top: 12px">更多相关内容</div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/alexzhang11/article/details/118556669"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/alexzhang11/article/details/118556669?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-2-118556669.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-2-118556669.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "1","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/alexzhang11/article/details/118556669?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-2-118556669.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-2-118556669.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "1","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-2-118556669.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>语言：cs,<em>ds</em>的区分</h2>
+                                    </a>
+                                    <span class="update-time">2021-07-07 20:31:36</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        段寄存器CS，<em>DS</em>的区分 简单理解，在8086cpu中，cs为存储命令的段寄存器，<em>ds</em>为存储数据的段寄存器。
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            <h2><a id="CSDS_0"></a>段寄存器CS&#xff0c;DS的区分</h2> 
+<p>简单理解&#xff0c;在8086cpu中&#xff0c;cs为存储命令的段寄存器&#xff0c;ds为存储数据的段寄存器。</p>
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                            <a href="javascript:;" class="readmore_btn"
+                                               data-linkUrl="https://blog.csdn.net/alexzhang11/article/details/118556669"
+                                               data-so-type="blog">
+                                                <span>展开全文</span>
+                                                <img src='https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png' alt="">
+                                            </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/weixin_43981952/article/details/88977997"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/weixin_43981952/article/details/88977997?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-3-88977997.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-3-88977997.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "2","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/weixin_43981952/article/details/88977997?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-3-88977997.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-3-88977997.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "2","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-3-88977997.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>语言中，关于段前缀（PSP）为什么<em>ds和es</em>的值与数据段的值不一样的问题</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2019-04-02 18:18:39</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        当加载exe格式的文件时，CS:IP指向程序开始执行的第一条指令，SS:SP指向堆栈段，<em>DS和ES</em>并不是指向程序数据段，而是指向程序前100H位置（这部分是该程序的段前缀 PSP），所以，<em>DS和ES</em>应该在程序当中进行设置（通常用...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            <p><img alt="" class="has" height="241" src="https://img-blog.csdnimg.cn/20190402181658277.png?x-oss-process&#61;image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4MTk1Mg&#61;&#61;,size_16,color_FFFFFF,t_70" width="860" /></p> 
+<p> </p> 
+<p>当加载exe格式的文件时&#xff0c;CS:IP指向程序开始执行的第一条指令&#xff0c;SS:SP指向堆栈段&#xff0c;DS和ES并不是指向程序数据段&#xff0c;而是指向程序前100H位置&#xff08;这部分是该程序的段前缀<br /> PSP&#xff09;&#xff0c;所以&#xff0c;DS和ES应该在程序当中进行设置&#xff08;通常用mov ax,data 和mov ds,ax指令所完成&#xff09;。</p>
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                            <a href="javascript:;" class="readmore_btn"
+                                               data-linkUrl="https://blog.csdn.net/weixin_43981952/article/details/88977997"
+                                               data-so-type="blog">
+                                                <span>展开全文</span>
+                                                <img src='https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png' alt="">
+                                            </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/z2431435/article/details/105329123"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/z2431435/article/details/105329123?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-4-105329123.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-4-105329123.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "3","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/z2431435/article/details/105329123?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-4-105329123.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-4-105329123.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "3","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-4-105329123.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>中ah，al，ax；<em>es</em>，cs，<em>ds</em>，ss；</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2020-04-05 16:44:33</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                         <em>ds和es</em>(Extra SEgment)一个是数据段，一个是附加数据段，这两个数据段一般情况下在使用方面没有多少区别。 在数据移动、搜索、比较这类指令中，<em>DS</em> 对应 SI，<em>ES</em> 对应 DI。这个时候,<em>DS和ES</em>就不同了，前面的表示源，...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            <p>ax中ah是高字节&#xff0c;al是低字节&#xff0c;组成ax&#xff08;字&#xff09;</p> 
+<p>CS 代码段寄存器&#xff1b;<br /> DS 数据段寄存器&#xff1b;<br /> ES 附加段寄存器。(使用时与数据段寄存器基本相同&#xff09;<br /> SS 堆栈段寄存器&#xff1b;<br /> ds和es(Extra SEgment)一个是数据段&#xff0c;一个是附加数据段&#xff0c;这两个数据段一般情况下在使用方面没有多少区别。<br /> 在数据移动、搜索、比较这类指令中&#xff0c;DS 对应 SI&#xff0c;ES 对应 DI。这个时候,DS和ES就不同了&#xff0c;前面的表示源&#xff0c;后面的表示目的地。<br /> 程序加载后&#xff0c;DS存放着程序所在内存的段地址</p> 
+<p>AX 寄存器称为累加器&#xff0c;常用于存放算术、逻辑运算中的操作答数或结果。另外&#xff0c;所有的I/O指令都要使用累加器与外设接口传递数据。<br /> BX 寄存器版称为基址寄存器&#xff0c;常用来存放访问内存时的地址。<br /> CX 寄存器称为计数寄存器&#xff0c;在循环、串操作指令中用作计数器。<br /> DX 寄存器称为数据寄存器&#xff0c;在寄存器间接寻址中的I/O指令中存放I/O端口的地址。<br /> 此外&#xff0c;在做双字权长乘除法运算时&#xff0c;DX 与AX合起来存放一个双字长数(32位)&#xff0c;其中DX存放高16位&#xff0c;AX存放低16位。</p>
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                            <a href="javascript:;" class="readmore_btn"
+                                               data-linkUrl="https://blog.csdn.net/z2431435/article/details/105329123"
+                                               data-so-type="blog">
+                                                <span>展开全文</span>
+                                                <img src='https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png' alt="">
+                                            </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/weixin_43916755/article/details/120396021"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/weixin_43916755/article/details/120396021?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-5-120396021.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-5-120396021.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "4","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/weixin_43916755/article/details/120396021?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-5-120396021.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-5-120396021.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "4","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-5-120396021.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>语言_段地址寄存器<em>ES</em>的使用</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2021-09-20 21:49:39</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        <em>ds</em>寄存器：记录数据从哪里来； <em>es</em>寄存器：记录数据到哪里去。 assume cs:code   	code segment 	mov ax,0ffffh 	mov <em>ds</em>,ax ; 数据从<em>ds</em>中来  	 	mov ax,20h 	mov <em>es</em>,ax ; 数据到<em>es</em>中去   	mov bx,0 ; 0-16 	mov cx,16
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/MtTaIgzsNzgxMjktYmxvZwO0O0OO0O0O.html">es寄存器   </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/takashi77/article/details/108927861"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/takashi77/article/details/108927861?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-6-108927861.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-6-108927861.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "5","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/takashi77/article/details/108927861?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-6-108927861.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-6-108927861.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "5","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-6-108927861.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2>浅谈<em>汇编</em>中的<em>ds</em>，cs与ip，ss与sp寄存器</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2020-10-05 15:45:49</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        <em>ds</em>，cs，ss都是<em>汇编</em>中的段寄存器而ip状态与控制寄存器，sp为索引寄存器，cs与ip搭配使用，ss与sp搭配使用；虽然<em>ds</em>，cs，ss都是段寄存器但是他们的作用却大不相同，（基于8086CPU）   （1）<em>ds</em> (Data Segment) 数据段...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/MtTaEg0sMTY4MzItYmxvZwO0O0OO0O0O.html">汇编   </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/wyyy2088511/article/details/118753176"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/wyyy2088511/article/details/118753176?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-7-118753176.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-7-118753176.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "6","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/wyyy2088511/article/details/118753176?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-7-118753176.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-7-118753176.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "6","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-7-118753176.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2>si，di，<em>ds</em>，<em>es</em>寄存器</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2021-07-15 10:08:49</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        <em>ds和es</em>是段寄存器，si<em>和</em>di是变址寄存器  <em>ds和</em>si组成：<em>ds</em>:si   <em>es和</em>di组成：<em>es</em>:di  常用把地址的值赋值给另地址。  <em>ds</em>:si ==》<em>es</em>:di  这里还应用到cx，表示赋值的长度。  其过程就是：  伪代码如下：  while(1)  {  ...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/simanstar/article/details/26368085"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/simanstar/article/details/26368085?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-8-26368085.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-8-26368085.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "7","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/simanstar/article/details/26368085?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-8-26368085.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-8-26368085.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "7","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-8-26368085.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>语言中cs.<em>ds</em>.<em>es</em>.ss怎么用</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2014-05-20 15:13:19</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        想知道他们怎么用，就必须了解他们的用途，他们<em>和</em>其他寄存器如何合作，寄存器寻址<em>和</em>存储器寻址如何完成？单说这几个段寄存器，不涉及其他寄存器，是不能真正了解掌握他们的。学习需要循序渐进，“莫在浮沙筑高台” -...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/wayne6515/article/details/111296951"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/wayne6515/article/details/111296951?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-9-111296951.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-9-111296951.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "8","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/wayne6515/article/details/111296951?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-9-111296951.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-9-111296951.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "8","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-9-111296951.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>DS</em>18B20温度采集报警系统，原理及<em>汇编</em>、C语言实现</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2020-12-22 15:06:31</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        DQ 			BIT 	P2.5		 ;温度传感器接口  TEMP_L 		EQU 	29H		;用于保存读出温度的低字节 TEMP_H 		EQU 	28H		;用于保存读出温度的高字节 ...<em>DS</em>18B20温度转换程序，包括转换成小数、个位、十位 lOOP: 			ACA
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/MtjaIgysNzIzODQtYmxvZwO0O0OO0O0O.html">DS18B20   </a>
+                                        <a href="../tags/MtTagg2sNDU2MS1ibG9n.html">51单片机   </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/xie__jin__cheng/article/details/88994599"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/xie__jin__cheng/article/details/88994599?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-10-88994599.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-10-88994599.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "9","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/xie__jin__cheng/article/details/88994599?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-10-88994599.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-10-88994599.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "9","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-10-88994599.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2>8086寄存器学习笔记-<em>DS</em> 寄存器<em>和</em> <em>ES</em> 寄存器</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2019-04-03 14:36:26</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        <em>DS</em> 寄存器<em>和</em> <em>ES</em> 寄存器： <em>DS</em> 数据段寄存器（Data Segment） <em>ES</em> 附加段寄存器（Extra Segment） 特点 1 属于段寄存器，不能直接保存数据，只能通过其他的段寄存器保存数据。 2 他们两个一个没有明显的区别，但是<em>DS</em> 是...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/qq_35212671/article/details/52770730"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/qq_35212671/article/details/52770730?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-11-52770730.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-11-52770730.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "10","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/qq_35212671/article/details/52770730?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-11-52770730.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-11-52770730.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "10","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-11-52770730.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2>8086 <em>DS</em> <em>和</em> <em>ES</em> 寄存器</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">万次阅读</i>
+                                            <i class="c2">多人点赞</i>
+                                    </span>
+                                    <span class="update-time">2016-10-09 21:29:17</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        <em>DS</em> 寄存器<em>和</em> <em>ES</em> 寄存器：  <em>DS</em> 寄存器<em>和</em> <em>ES</em> 寄存器都属于段寄存器，其实它们<em>和</em> CS 寄存器以及 SS 寄存器用起来区别不大，  既然是段寄存器的话，自然它们存放的就是某个段地址了 。  通过上面对基础知识的介绍...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/Apollon_krj/article/details/70550667"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/Apollon_krj/article/details/70550667?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-12-70550667.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-12-70550667.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "11","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/Apollon_krj/article/details/70550667?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-12-70550667.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-12-70550667.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "11","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-12-70550667.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2>8086<em>汇编</em>学习之<em>DS</em>寄存器、SS/SP寄存器</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">万次阅读</i>
+                                    </span>
+                                    <span class="update-time">2017-04-23 23:09:40</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        相关博客：8086<em>汇编</em>基础知识、通用寄存器、CS/IP寄存器与Debug的使用 一、<em>DS</em>寄存器一个8086CPU寄存器均是16位的，而数据类型有以下两种：  1Byte = 8bit (字节型数据)  1word = 2Byte = 16bit (字型数据)16位寄存器...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/MtTaEg0sMTY4MzItYmxvZwO0O0OO0O0O.html">汇编   </a>
+                                        <a href="../tags/MtTaEg0sNDk0NjQtYmxvZwO0O0OO0O0O.html">内存   </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/qq_29134495/article/details/51644474"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/qq_29134495/article/details/51644474?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-13-51644474.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-13-51644474.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "12","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/qq_29134495/article/details/51644474?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-13-51644474.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-13-51644474.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "12","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-13-51644474.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>语言中 cs, <em>ds</em>,ss 的区别</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2016-06-12 10:43:40</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        <em>汇编</em>语言中CS，<em>DS</em>，SS还有一个<em>ES</em>定义如下：  CS（Code Segment）：代码段寄存器；  <em>DS</em>（Data Segment）：数据段寄存器；  SS（Stack Segment）：堆栈段寄存器；  <em>ES</em>（Extra Segment）：附加段寄存器。  当一个程序要...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/MtzaIg0sMTUwMjAtYmxvZwO0O0OO0O0O.html">汇编语言   </a>
+                                        <a href="../tags/MtTaEg0sNDc1NTItYmxvZwO0O0OO0O0O.html">数据   </a>
+                                        <a href="../tags/MtTaEg0sNDk0NjQtYmxvZwO0O0OO0O0O.html">内存   </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/abqf3518/article/details/101816475"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/abqf3518/article/details/101816475?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-14-101816475.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-14-101816475.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "13","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/abqf3518/article/details/101816475?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-14-101816475.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-14-101816475.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "13","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-14-101816475.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>中PSP是什么？为什么一般cs比<em>ds</em>大10h</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2019-10-01 04:29:45</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        一般来说，PSP是256个字节，当程度生成了可执行文件以后，在执行的时候，先将程序调入内存，  这个时候<em>DS</em>中存入程序在...为什么一般CS要比<em>DS</em>大10H，就是因为这个原因，简单说：<em>DS</em>存放的是程序段地址，由于PSP的存...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/bmxch/article/details/113791327"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/bmxch/article/details/113791327?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-15-113791327.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-15-113791327.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "14","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/bmxch/article/details/113791327?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-15-113791327.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-15-113791327.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "14","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-15-113791327.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2>cs ss <em>ds</em> <em>es</em></h2>
+                                    </a>
+                                    <span class="update-time">2021-02-11 18:17:48</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        cs ss <em>ds</em> <em>es</em> 首先 cpu中寄存器用于存储内存中数据的物理地址 cs 为代码段寄存器，一般用于存放代码； 通常<em>和</em>IP 使用用于处理下一条执行的代码 cs:IP 基地址：偏移地址 cs地址对应的数据 相当于c语言中的代码语句 <em>ds</em> ...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/MtTacg0sNTgzNi1ibG9n.html">操作系统   </a>
+                                        <a href="../tags/MtTaEg0sMzM2MTktYmxvZwO0O0OO0O0O.html">堆栈   </a>
+                                        <a href="../tags/MtTaEg0sMzc0NzktYmxvZwO0O0OO0O0O.html">c语言   </a>
+                                        <a href="../tags/Ntzakg4sNTQ5NDUtYmxvZwO0O0OO0O0O.html">反汇编   </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/weixin_36222664/article/details/111978852"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/weixin_36222664/article/details/111978852?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-16-111978852.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-16-111978852.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "15","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/weixin_36222664/article/details/111978852?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-16-111978852.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-16-111978852.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "15","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-16-111978852.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>语言——<em>汇编</em>指令</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2020-12-24 23:28:40</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        mov功能：用来进行数据传输。以 “mov A, B”为例，相当于A=B。具有以下形式：mov 寄存器, 数据；...具有的形式，<em>和</em> mov 一样。sub功能：用来做减法。以“sub A, B”为例，相当于A=A-B。具有的形式...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/MtjaMgxsNTg1ODMtYmxvZwO0O0OO0O0O.html">dx 汇编dec   </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/u011488769/article/details/119488993"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/u011488769/article/details/119488993?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-17-119488993.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-17-119488993.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "16","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/u011488769/article/details/119488993?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-17-119488993.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-17-119488993.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "16","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-17-119488993.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2>寄存器由来 <em>ES</em> CS SS <em>DS</em> FS GS区别</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2021-08-07 16:46:20</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        <em>es</em>是扩展段寄存器 cs是代码段寄存器 ss是堆栈段寄存器 <em>ds</em>是数据段寄存器 fs是标志段寄存器 gs是全局段寄存器
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://download.csdn.net/download/weixin_38673548/12724421"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://download.csdn.net/download/weixin_38673548/12724421?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-download-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-18-12724421.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-download-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-18-12724421.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "17","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "1","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://download.csdn.net/download/weixin_38673548/12724421?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-download-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-18-12724421.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-download-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-18-12724421.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "17","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "1","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-download-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-18-12724421.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2>8086<em>汇编</em>指令速查手册</h2>
+                                    </a>
+                                    <span class="update-time">2020-08-19 02:04:50</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        8086<em>汇编</em>指令速查手册：常用指令、算术运算指令 、逻辑运算指令、串指令 、程序跳转指令。如：计算机寄存器分类简介: 32位...6个段寄存器(<em>ES</em>、CS、SS、<em>DS</em>、FS<em>和</em>GS)；1个指令指针寄存器(EIP) 1个标志寄存器(EFlags) 。
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://download.csdn.net/download/weixin_38743076/13783303"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://download.csdn.net/download/weixin_38743076/13783303?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-download-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-19-13783303.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-download-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-19-13783303.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "18","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "1","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://download.csdn.net/download/weixin_38743076/13783303?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-download-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-19-13783303.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-download-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-19-13783303.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "18","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "1","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-download-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-19-13783303.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>语言rep movsd 的使用详解</h2>
+                                    </a>
+                                    <span class="update-time">2020-12-25 22:50:22</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        =0便执行movsd ，然后ecx=ecx-1 movsd移动<em>ds</em>：[si] 到<em>es</em>：[di]，在32位<em>汇编</em>下可以用esi代替si，edi代替di  2.同时由于在一般exe中<em>ds</em> = <em>es</em> 程序起始位置所以另esi = offset @s1就可以找到变量s1 ,edi= offset @s2就...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/rebortt/article/details/112068822"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/rebortt/article/details/112068822?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-20-112068822.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-20-112068822.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "19","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/rebortt/article/details/112068822?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-20-112068822.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-20-112068822.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "19","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-20-112068822.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>——操作符<em>和</em>常用指令</h2>
+                                    </a>
+                                    <span class="update-time">2021-01-02 21:12:53</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        操作符分为四大类，算数操作符、<em>关系</em>操作符、数值回送操作符<em>和</em>属性操作符。 注：这里指的是[sp+8]这样的加法，而不是我们的add指令。 算数操作符 加减乘除<em>和</em>求模，这个就不说了。 <em>关系</em>运算符  EQ	等于 NE	不等于 LT	...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/MtTaEg0sMTY4MzItYmxvZwO0O0OO0O0O.html">汇编   </a>
+                                        <a href="../tags/MtTaEg0sNDc2MDItYmxvZwO0O0OO0O0O.html">操作符   </a>
+                                        <a href="../tags/MtTaAgwsNzE0MDA1LWJsb2cO0O0O.html">常用指令   </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/weixin_39938522/article/details/111865319"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/weixin_39938522/article/details/111865319?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-21-111865319.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-21-111865319.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "20","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/weixin_39938522/article/details/111865319?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-21-111865319.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-21-111865319.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "20","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-21-111865319.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2>指令<em>汇编</em>指令大全</h2>
+                                    </a>
+                                    <span class="update-time">2020-12-22 21:29:56</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        第四章<em>汇编</em>语言程序格式§4.1<em>汇编</em>语言语句种类§4.2伪操作§4.3<em>汇编</em>语言程序格式§4.4<em>汇编</em>语言的上机过程§4.1<em>汇编</em>语言语句种类一、指令语句二、伪指令语句三、宏指令使CPU产生动作、并在程序执行时才处理的语句,...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/deniece1/article/details/101168860"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/deniece1/article/details/101168860?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-22-101168860.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-22-101168860.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "21","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/deniece1/article/details/101168860?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-22-101168860.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-22-101168860.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "21","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-22-101168860.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>语言中，<em>DS</em>与BX有何区别？怎么搭配使用？（BX是通用寄存器）</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2019-09-22 19:21:45</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        专用寄存器：SP,IP<em>和</em>FLAGS 3个16位寄存器。 疑问：SP到底是通用寄存器还是专用寄存器？ 答：好像都可以，Intel为什么把SP设计成通用寄存器，这样我也觉得有些奇怪。 SP除了作栈顶指针外，你还可以用SP来完成加减乘除...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/weixin_33829657/article/details/91429307"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/weixin_33829657/article/details/91429307?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-23-91429307.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-23-91429307.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "22","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/weixin_33829657/article/details/91429307?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-23-91429307.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-23-91429307.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "22","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-23-91429307.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2>《转》<em>汇编</em>语言中 cs，<em>ds</em>，ss，<em>es</em>分别是那些英文单词的缩写？</h2>
+                                    </a>
+                                    <span class="update-time">2018-02-07 03:57:31</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        <em>ds</em>：数据段寄存器，是 data segment 的缩写； ss：堆栈段寄存器， 是 stack segment 的缩写； <em>es</em>：附加段寄存器，是 extra segment 的缩写； 转自：zhidao.baidu.com/question/57…  转载于:...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/qq_34149335/article/details/123363915"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/qq_34149335/article/details/123363915?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-24-123363915.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-24-123363915.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "23","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/qq_34149335/article/details/123363915?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-24-123363915.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-24-123363915.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "23","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-24-123363915.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>学习教程：循环<em>和</em>CX寄存器</h2>
+                                    </a>
+                                    <span class="update-time">2022-03-08 21:35:13</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        引言  在上面博文中，我们主要学习了BX寄存器配合...此外，[bx]也是一种强指定格式，因为按照已经设计好的规定，[bx] 的格式只能<em>和</em>数据段<em>DS</em>配合进行内存访问，所以Masm编译器也可以正确识别 [bx] 格式并准确编译。  现
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/MtTaEg0sMjc1MDktYmxvZwO0O0OO0O0O.html">循环   </a>
+                                        <a href="../tags/MtzaIgxsMTY3ODgtYmxvZwO0O0OO0O0O.html">cpu   </a>
+                                        <a href="../tags/MtjaMg1sMzI0MjAtYmxvZwO0O0OO0O0O.html">寄存器   </a>
+                                        <a href="../tags/MtTaEg0sMDE1NjctYmxvZwO0O0OO0O0O.html">X86汇编   </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/u010234808/article/details/38381729"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/u010234808/article/details/38381729?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-25-38381729.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-25-38381729.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "24","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/u010234808/article/details/38381729?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-25-38381729.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-25-38381729.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "24","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-25-38381729.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>中 <em>ds</em>，ss，cs内容在内存中存放的顺序</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2014-08-05 10:57:30</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        今天依然在看王爽大大的<em>汇编</em>语言。。
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/MtzaIg0sMTUwMjAtYmxvZwO0O0OO0O0O.html">汇编语言   </a>
+                                        <a href="../tags/MtTaEg0sNDk0NjQtYmxvZwO0O0OO0O0O.html">内存   </a>
+                                        <a href="../tags/MtTaEg0sMTcwMjMtYmxvZwO0O0OO0O0O.html">段寄存器   </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/lygl35/article/details/123814192"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/lygl35/article/details/123814192?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-26-123814192.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-26-123814192.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "25","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/lygl35/article/details/123814192?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-26-123814192.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-26-123814192.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "25","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-26-123814192.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>语言字符串操作指令movs，<em>和</em>逻辑段寄存器【学习笔记】</h2>
+                                    </a>
+                                    <span class="update-time">2022-03-29 10:14:44</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        movs 移动字符串的意思，后面的s是 ...第一步，CPU自动将<em>DS</em>:SI第一字节内容放到<em>ES</em>:DI 第二步，CPU自动将SI <em>和</em>DI加或减1（字就是加或减2），DF标志位0时自动加，DF标志位1时自动减，也就是自动把地址变下一个地址  ...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/MtTaEg0sMzA3NzEtYmxvZwO0O0OO0O0O.html">学习   </a>
+                                        <a href="../tags/MtTaEg0sNTAxMTMtYmxvZwO0O0OO0O0O.html">windows   </a>
+                                        <a href="../tags/MtTaEg0sMzgzMjItYmxvZwO0O0OO0O0O.html">css   </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/weixin_42859280/article/details/107799801"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/weixin_42859280/article/details/107799801?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-27-107799801.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-27-107799801.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "26","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/weixin_42859280/article/details/107799801?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-27-107799801.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-27-107799801.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "26","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-27-107799801.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>语言reg<em>和</em>sreg bp的介绍</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2020-08-04 21:31:41</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        reg【寄存器】: ...<em>ds</em>：数据段  ss：栈段  cs：代码段  <em>es</em>：扩展段    bx bp si di这四个之间非比寻常的<em>关系</em>：  8086CPU中，只有这四个可以用于[]之中进行内存单元的寻址。  而且仅仅允许出现的组合：...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/OtDaEgwsMjE1MTQtYmxvZwO0O0OO0O0O.html">reg寄存器   </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/weixin_36229423/article/details/117183734"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/weixin_36229423/article/details/117183734?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-28-117183734.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-28-117183734.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "27","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/weixin_36229423/article/details/117183734?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-28-117183734.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-28-117183734.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "27","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-28-117183734.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2>【<em>汇编汇编</em>语言面试题】面试问题：<em>汇编</em>语言-第三… - 看准网</h2>
+                                    </a>
+                                    <span class="update-time">2021-05-23 07:29:37</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                         ------ 在屏幕中间依次显示a~z ------ mov ax, 0b800H mov <em>es</em>, ax mov ah, 'a' s: mov <em>es</em>:[160*12+40*2], ah call delay inc ah cmp ah, 'z' jna s mov ax, 0 mov <em>es</em>, ax push <em>ds</em>:[0] pop <em>es</em>:[9*4] push <em>ds</em>:[2] pop...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/BlacKingZ/article/details/114375129"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/BlacKingZ/article/details/114375129?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-29-114375129.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-29-114375129.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "28","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/BlacKingZ/article/details/114375129?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-29-114375129.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-29-114375129.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "28","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-29-114375129.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2>【<em>汇编</em>语言】寄存器<em>和</em>地址</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                            <i class="c2">多人点赞</i>
+                                    </span>
+                                    <span class="update-time">2021-03-04 18:40:57</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        寄存器<em>和</em>地址 主要内容： 一、寄存器 (1)透明寄存器 (2)可编程寄存器 1.通用寄存器 2.专用寄存器 二、地址 (1)存储模型 (2)存储空间分段管理 (3)物理地址与逻辑地址 (4)操作数寻址过程
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/MtzaIg0sMTUwMjAtYmxvZwO0O0OO0O0O.html">汇编语言   </a>
+                                </div>
+                        </li>
+                        <li data-page="1">
+                            <div class="blog-title" style="display: flex;">
+                                    <a href="https://blog.csdn.net/rebortt/article/details/112063355"
+                                       data-report-click='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/rebortt/article/details/112063355?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-30-112063355.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-30-112063355.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "29","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-view='{"mod": "popu_876","spm": "3001.4430","dest": "https://blog.csdn.net/rebortt/article/details/112063355?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D&amp;request_id=165090716816782425117297&amp;utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-30-112063355.pc_agg_new_rank","extra": "{\&quot;utm_medium\&quot;:\&quot;distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-30-112063355.pc_agg_new_rank\&quot;,\&quot;dist_request_id\&quot;:\&quot;1650907168269_75825\&quot;}","index": "29","strategy": "2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm","biz_id": "0","ops_request_misc": "%257B%2522request%255Fid%2522%253A%2522165090716816782425117297%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Faggregatepage.%2522%257D","request_id": "165090716816782425117297"}'
+                                       data-report-query="utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-30-112063355.pc_agg_new_rank&utm_term=es%E5%92%8Cds%E5%85%B3%E7%B3%BB+%E6%B1%87%E7%BC%96&spm=3001.4430"
+                                       target="_blank" class="blog-title">
+                                        <h2><em>汇编</em>——寄存器的分类<em>和</em>功能</h2>
+                                    </a>
+                                    <span class="tags">
+                                            <i class="c1">千次阅读</i>
+                                    </span>
+                                    <span class="update-time">2021-01-01 20:59:45</span>
+                            </div>
+                                <div class="description">
+                                    <div class="desc-detail digest">
+                                        在<em>汇编</em>中，个人感觉最重要的部分其实就是寄存器了，这次我们了解一下寄存器的分类<em>和</em>功能。 先说一下寄存器是什么吧，其实就是一部分的空间，我们可以使用这些空间来存储内容。 寄存器的空间都是16位的（80x86中，...
+                                    </div>
+                                    <div class="desc-detail content">
+                                        <div class='article_content'>
+                                            
+                                        </div>
+                                        <div class="hide-content"><a href="javascript:;">收起 <img
+                                                        src="https://csdnimg.cn/release/aggregate/img/arrow-down@2x.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                                <div class="tags-view">
+                                    <img src='https://csdnimg.cn/release/aggregate/img/tags.png' alt="">
+                                        <a href="../tags/MtTaEg0sMTY4MzItYmxvZwO0O0OO0O0O.html">汇编   </a>
+                                        <a href="../tags/MtTaIgwsMTEzMDAtYmxvZwO0O0OO0O0O.html">寄存器种类   </a>
+                                </div>
+                        </li>
+                </ul>
+            </div>
+
+            <div class="tab-bd wrap-download">
+                <div class="qa-list"></div>
+                <div class="qa-no-data hide">
+                    <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/monkeyWhite.png" alt="">
+                    <p style="color: #6b6b6b;font-size: 16px;font-weight: bold;letter-spacing: 2px;">空空如也</p>
+                </div>
+            </div>
+
+            <div class="tab-bd wrap-qa">
+                <div class="qa-list"></div>
+                <div class="qa-no-data hide">
+                    <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/monkeyWhite.png" alt="">
+                    <p style="color: #6b6b6b;font-size: 16px;font-weight: bold;letter-spacing: 2px;">空空如也</p>
+                </div>
+            </div>
+
+            <div class="wrap-pagination">
+                <div class="ftl_page">
+
+ <script>  
+    console.log("pageNum", `1`)
+    console.log("pages", `20`)
+    console.log("toalNum", `400`)
+</script>
+
+ <div class="search-result-pagination"> 
+         <div class="csdn-pagination hide-set">
+            <span class="page-nav">
+                    <a class="disable iconfont icon-fanhui btn btn-xs btn-default btn-prev checklogin" href="javascript:;"></a> 
+
+
+                    
+                        <a href="?platform=pc&page=1&pageSize=20"  page_num="1" class="btn btn-xs btn-default active checklogin">1</a> 
+                    
+                    
+                        <a href="?platform=pc&page=2&pageSize=20"  page_num="2" class="btn btn-xs btn-default checklogin">2</a> 
+                    
+                    
+                        <a href="?platform=pc&page=3&pageSize=20"  page_num="3" class="btn btn-xs btn-default checklogin">3</a> 
+                    
+                    
+                        <a href="?platform=pc&page=4&pageSize=20"  page_num="4" class="btn btn-xs btn-default checklogin">4</a> 
+                    
+                    
+                        <a href="?platform=pc&page=5&pageSize=20"  page_num="5" class="btn btn-xs btn-default checklogin">5</a> 
+                    
+                        <span class="ellipsis">...</span> 
+                    
+                        <a href="?platform=pc&page=20&pageSize=20"  page_num="20" class="btn btn-xs btn-default checklogin">20</a> 
+                    
+
+                    <a href="?platform=pc&page=2&pageSize=20" page_num="2" class="iconfont icon-fanhui btn btn-xs btn-default btn-next checklogin"></a>
+            </span>
+        </div>
+   
+</div>                </div>
+                <div class="ant_page hide" style="padding-top: 10px;background-color: #fff;"></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="con-r-tag">
+        <div class="collect-and-boutique">
+            <div>
+                <span>收藏数</span>
+                    <span>19,158</span>
+            </div>
+            <div>
+                <span>精华内容</span>
+                    <span>7,663</span>
+            </div>
+        </div>
+        <div class="hot-tags">
+            <div>热门标签</div>
+            <ul class="clearfloat">
+                    <li>
+                        <a href=""
+                           target="_blank"
+                           data-report-click='{"spm":"3001.4431","dest":""}'
+                           data-report-query="spm=3001.4431">
+                            汇编es ds初始值
+                        </a>
+                    </li>
+                    <li>
+                        <a href=""
+                           target="_blank"
+                           data-report-click='{"spm":"3001.4431","dest":""}'
+                           data-report-query="spm=3001.4431">
+                            汇编使es与ds为同一值
+                        </a>
+                    </li>
+                    <li>
+                        <a href=""
+                           target="_blank"
+                           data-report-click='{"spm":"3001.4431","dest":""}'
+                           data-report-query="spm=3001.4431">
+                            汇编语言ds和es
+                        </a>
+                    </li>
+                    <li>
+                        <a href=""
+                           target="_blank"
+                           data-report-click='{"spm":"3001.4431","dest":""}'
+                           data-report-query="spm=3001.4431">
+                            汇编语言add ds,es
+                        </a>
+                    </li>
+                    <li>
+                        <a href=""
+                           target="_blank"
+                           data-report-click='{"spm":"3001.4431","dest":""}'
+                           data-report-query="spm=3001.4431">
+                            汇编中es ds si di
+                        </a>
+                    </li>
+                    <li>
+                        <a href=""
+                           target="_blank"
+                           data-report-click='{"spm":"3001.4431","dest":""}'
+                           data-report-query="spm=3001.4431">
+                            汇编ds和si寄存器 ds和es
+                        </a>
+                    </li>
+            </ul>
+        </div>
+        <div class="pudn-recommend">
+            <div style="border: 1px solid rgba(240, 240, 242, 0.7); font-weight: 500; color: #222226;" class="title">相关推荐</div>
+            <ul class="list">
+                    <li  class="item" style="padding:16px 14px;" >
+                        <a data-report-click='{"spm":"1000.2123.3001.8073.1","dest":"https://www.pudn.com/detail/4867636"}'
+                        data-report-view='{"spm":"1000.2123.3001.8073.1","dest":"https://www.pudn.com/detail/4867636"}'
+                        data-report-query="spm=1000.2123.3001.8073.1" class="clearfloat" href="https://www.pudn.com/detail/4867636" target="_blank" class="title">
+                        <div class="left">
+                            <div  class="item-title">WIN32汇编实现的主引导区病毒的分析.rar</div>
+                            <div  class="item-desc">利用23位汇编语言实现Windows系统引导型病毒及其运行传播机理</div>
+                        </div>
+                        <div class="right">
+                            <img  style="width:44px;height:44px"  alt="图标" src="https://pudn-static.oss-cn-beijing.aliyuncs.com/images/rar.png">
+                        </div>
+                         </a>
+                    </li>
+                    <li  class="item" style="padding:16px 14px;" >
+                        <a data-report-click='{"spm":"1000.2123.3001.8073.2","dest":"https://www.pudn.com/detail/5162754"}'
+                        data-report-view='{"spm":"1000.2123.3001.8073.2","dest":"https://www.pudn.com/detail/5162754"}'
+                        data-report-query="spm=1000.2123.3001.8073.2" class="clearfloat" href="https://www.pudn.com/detail/5162754" target="_blank" class="title">
+                        <div class="left">
+                            <div  class="item-title">单片机C语言和汇编语言混合编程实例详解TP3121221.rar</div>
+                            <div  class="item-desc">单片机C语言和汇编语言混合编程实例详解，很好用的</div>
+                        </div>
+                        <div class="right">
+                            <img  style="width:44px;height:44px"  alt="图标" src="https://pudn-static.oss-cn-beijing.aliyuncs.com/images/rar.png">
+                        </div>
+                         </a>
+                    </li>
+                    <li  class="item" style="padding:16px 14px;" >
+                        <a data-report-click='{"spm":"1000.2123.3001.8073.3","dest":"https://www.pudn.com/detail/5225366"}'
+                        data-report-view='{"spm":"1000.2123.3001.8073.3","dest":"https://www.pudn.com/detail/5225366"}'
+                        data-report-query="spm=1000.2123.3001.8073.3" class="clearfloat" href="https://www.pudn.com/detail/5225366" target="_blank" class="title">
+                        <div class="left">
+                            <div  class="item-title">单片机C语言和汇编语言混合编程实例详解.rar</div>
+                            <div  class="item-desc">这是一个学习编写程序的资料，里面有很多经典的程序，大家可以学习一下。</div>
+                        </div>
+                        <div class="right">
+                            <img  style="width:44px;height:44px"  alt="图标" src="https://pudn-static.oss-cn-beijing.aliyuncs.com/images/rar.png">
+                        </div>
+                         </a>
+                    </li>
+                    <li  class="item" style="padding:16px 14px;" >
+                        <a data-report-click='{"spm":"1000.2123.3001.8073.4","dest":"https://www.pudn.com/detail/5225913"}'
+                        data-report-view='{"spm":"1000.2123.3001.8073.4","dest":"https://www.pudn.com/detail/5225913"}'
+                        data-report-query="spm=1000.2123.3001.8073.4" class="clearfloat" href="https://www.pudn.com/detail/5225913" target="_blank" class="title">
+                        <div class="left">
+                            <div  class="item-title">安工大汇编语言课件（全）.rar</div>
+                            <div  class="item-desc">汇编语言课件（全）内有全部课件，以及DEBUG命令一览表
+DOS错误信息一览表，中断向量地址表</div>
+                        </div>
+                        <div class="right">
+                            <img  style="width:44px;height:44px"  alt="图标" src="https://pudn-static.oss-cn-beijing.aliyuncs.com/images/rar.png">
+                        </div>
+                         </a>
+                    </li>
+                    <li  class="item" style="padding:16px 14px;" >
+                        <a data-report-click='{"spm":"1000.2123.3001.8073.5","dest":"https://www.pudn.com/detail/5285598"}'
+                        data-report-view='{"spm":"1000.2123.3001.8073.5","dest":"https://www.pudn.com/detail/5285598"}'
+                        data-report-query="spm=1000.2123.3001.8073.5" class="clearfloat" href="https://www.pudn.com/detail/5285598" target="_blank" class="title">
+                        <div class="left">
+                            <div  class="item-title">汇编语言入门学习--大礼包哦！.rar</div>
+                            <div  class="item-desc">包括：
+汇编论坛精华
+Doswin32 .CHM
+pcasm.chm
+超级浓缩教程.doc
+汇编语言课件.chm
+汇编教程.chm
+声明：本资源来自互联网！</div>
+                        </div>
+                        <div class="right">
+                            <img  style="width:44px;height:44px"  alt="图标" src="https://pudn-static.oss-cn-beijing.aliyuncs.com/images/rar.png">
+                        </div>
+                         </a>
+                    </li>
+            </ul>
+        </div>
+   
+
+        <div class="hot-brand hide" style="margin-top: 8px;background-color: #fff;"></div>
+
+        <div class="hot-tags keywords">
+            关键字：<h1>es和ds关系 汇编 </h1>
+        </div>
+
+
+
+
+        <div class="nps-block"></div>
+
+        <div class="bottom-part">
+            <div class="persion_article" style="width:300px;margin-top: 8px;"></div>
+        </div>
+        <script src="https://g.csdnimg.cn/common/csdn-footer/csdn-footer.js" data-isfootertrack="false"></script>
+
+        <script src="https://g.csdnimg.cn/csdn-nps/1.1.1/csdn-nps.js"></script>
+        <script>
+            window.csdn.csdnNps = window.csdn.csdnNps ? window.csdn.csdnNps : {};
+            window.csdn.csdnNps.options = {
+                el: '.nps-block',
+                isDark: false,
+                spm: '1000.2123.3001.6754',
+                title: '您愿意向您朋友推荐CSDN吗？',
+                cookieName : 'aggregate_page_nps',
+                day:30
+            }
+        </script>
+    </div>
+</div>
+
+<script id="tpl_qa" type="text/html">
+    <div class="qa-list">
+        {{each items}}
+        <div class="qa-item">
+            <div class="qa-item-hd">
+                <a href="{{$value.ext.url_location}}"
+                   data-report-click='{"mod":"{{@$value.report_data.data.mod}}","spm":"{{@$value.spm}}","dest":"{{$value.ext.url_location}}","index":"{{@$value.report_data.data.index}}","strategy":"{{@$value.report_data.data.strategy}}","biz_id":"{{@$value.report_data.data.biz_id}}","ops_request_misc":"{{@$value.report_data.data.ops_request_misc}}","request_id":"{{@$value.report_data.data.request_id}}"}'
+                   data-report-view='{"mod":"{{@$value.report_data.data.mod}}","spm":"{{@$value.spm}}","dest":"{{$value.ext.url_location}}","index":"{{@$value.report_data.data.index}}","strategy":"{{@$value.report_data.data.strategy}}","biz_id":"{{@$value.report_data.data.biz_id}}","ops_request_misc":"{{@$value.report_data.data.ops_request_misc}}","request_id":"{{@$value.report_data.data.request_id}}"}'
+                   class="list-title" target="_blank">{{@$value.ext.title}}</a>
+            </div>
+            <div class="qa-item-bd">
+                <div class="detail">{{$value.ext.description}}</div>
+                {{if $value.ext.answer && $value.ext.answer != ''}}
+                <div class="answer">
+                    <pre><code>{{$value.ext.answer}}</code></pre>
+                </div>
+                {{/if}}
+            </div>
+            <div class="qa-item-ft">
+                {{if $value.ext.create_time != ''}}
+                <span class="qa-time">{{$value.ext.create_time|parseTime}}</span>
+                {{/if}}
+                {{if $value.ext.nickname != ''}}
+                <a href="https://me.csdn.net/{{$value.ext.author}}" target="_blank" class="qa-nickname">{{$value.ext.nickname}}</a>
+                {{/if}}
+                {{if $value.ext.view}}
+                <span class="qa-view"><i class="icon icon-view"></i>{{$value.ext.view|parseN}}</span>
+                {{/if}}
+                {{if $value.ext.comment != 0}}
+                <span class="qa-comment"><i class="icon icon-comment"></i>{{$value.ext.comment|parseN}}</span>
+                {{/if}}
+                {{if $value.ext.digg != 0}}
+                <span class="qa-dig"><i class="icon icon-dig"></i>{{$value.ext.digg|parseN}}</span>
+                {{/if}}
+
+                {{each $value.ext.tags tag}}
+                <span class="qa-tags">
+                    {{if tag != ''}}
+                    <i class="qa-tag">{{tag}}</i>
+                    {{/if}}
+                </span>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</script>
+
+<script id="tpl_page" type="text/html">
+    {{set pageNum = data.pageNum}}
+    {{set pages = data.pages}}
+    {{set pageSize = data.pageSize}}
+    {{set toalNum = data.totalNum}}
+    {{set pagesList = data.pageList}}
+
+    <div class="search-result-pagination">
+        {{if toalNum > 0}}
+        <div class="csdn-pagination hide-set">
+            <span class="page-nav">
+                {{if pageNum == 1}}
+                    <a class="disable iconfont icon-fanhui btn btn-xs btn-default btn-prev checklogin"
+                       href="javascript:;"></a>
+                {{/if}}
+                {{if pageNum > 1}}
+                    <a href="javascript:;" page_num="{{pageNum - 1}}"
+                       class="iconfont icon-fanhui btn btn-xs btn-default btn-prev checklogin"></a>
+                 {{/if}}
+
+
+                {{each pagesList pages pages_index}}
+                    {{if pages_index == 0 && pages > 1}}
+                        <a href="javascript:;" page_num="1"
+                           class="btn btn_normal btn-xs btn-default checklogin">1</a>
+                        {{if pageNum != 4}}
+                            <span class="ellipsis">...</span>
+                        {{/if}}
+                    {{/if}}
+
+
+                    {{if pages == pageNum}}
+                        <a href="javascript:;" page_num="{{pages}}"
+                           class="btn btn_normal btn-xs btn-default active checklogin">{{pages}}</a>
+                    {{else}}
+                        <a href="javascript:;" page_num="{{pages}}"
+                           class="btn btn_normal btn-xs btn-default checklogin">{{pages}}</a>
+                    {{/if}}
+
+                    {{set curPageNext=pages_index + 1}}
+                    {{set pl = pagesList[curPageNext]}}
+                    {{set ps = pages + 1}}
+                    {{if pl && ps < pl }}
+                        <span class="ellipsis">...</span>
+                    {{/if}}
+
+                {{/each}}
+
+                 {{if pageNum < 20}}
+                    <a href="javascript:;" page_num="{{pageNum + 1}}"
+                       class="iconfont icon-fanhui btn btn-xs btn-default btn-next checklogin"></a>
+                {{else}}
+                    <a href="javascript:;"
+                       class="disable iconfont icon-fanhui btn btn-xs btn-default btn-next checklogin"></a>
+                {{/if}}
+            </span>
+        </div>
+        {{/if}}
+
+    </div>
+
+</script>
+
+
+<script src='https://csdnimg.cn/release/aggregate/js/common-773ba0471c.min.js' type="text/javascript"></script>
+<script src='https://csdnimg.cn/release/aggregate/js/pc-df555339c0.min.js' type="text/javascript"></script>
+<script src='https://csdnimg.cn/release/aggregate/js/libs/template-web.js' type="text/javascript"></script>
+
+<script type="text/javascript">
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+<script>
+    (function () {
+            var el = document.createElement("script");
+            el.src = "https://s3a.pstatp.com/toutiao/push.js?310416c564ee613927023910da70cee87ab5225d389206dcae94ee9057000d80c50ae680cb4ab776e94401444c404d285b8b644eda8af801d0911a0d00026e7f";
+            el.id = "ttzz";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(el, s);
+        }
+    )(window)
+</script>
+
+<script type="text/javascript">
+    (function ($) {
+
+        function z(s) {
+            return s < 10 ? '0' + s : s;
+        }
+
+        function dwd(data, spm) {
+            if (!data || !data.items.length) return;
+            for (let i = 0; i < data.items.length; i++) {
+                let item = data.items[i];
+                if(typeof (item.ext.tags) == 'string') {
+                    item.ext.tags = item.ext.tags.split(",");
+                }
+                item.spm = spm;
+            }
+            return data;
+        }
+
+        template.defaults.imports.parseN = function (n) {
+            return (n > 9999 ? (Math.floor(n / 10000) + '万+') : n);
+        };
+
+        template.defaults.imports.parseTime = function (n) {
+            let d = new Date(parseInt(n));
+            let y = d.getFullYear();
+            let m = d.getMonth() + 1;
+            let dd = d.getDate();
+            return y + '-' + z(m) + '-' + z(dd);
+        };
+        var __agg_pc__ = {
+            isGetDownloadList: false,
+            isGetQaList: false,
+            isAjax: true,
+            initIframeBlinkHeight: function () {
+                let winHeight = window.innerHeight;
+                let isHasBaike = $(".baike-view").size();
+                let other = isHasBaike ? 280 : 140;
+                let res = Math.floor(winHeight - other);
+                $("#blink").css("height", res + 'px');
+            },
+            init: function () {
+                //this.initIframeBlinkHeight();
+                this.events();
+                //this.getQAList();
+                //加载右侧广告
+                this.getBrandDataById(528, function (res) {
+                    $(".hot-brand").removeClass("hide").html(res.data.con);
+                });
+                //加载Top广告
+                this.getBrandDataById(529, function (res) {
+                    $(".top-banner").removeClass("hide").html(res.data.con);
+                });
+            },
+            events: function () {
+                var self = this;
+                let tab_hd = $(".ag-tab-bar").find(".tab-hd-item");
+                let tab_bd = $(".content-list").find(".tab-bd");
+                tab_hd.on('click', function () {
+                    let that = $(this);
+                    let type = that.attr('type');
+
+                    that.addClass("active").siblings().removeClass("active");
+
+                    if (type === 'hot') {
+                        $(".ag-tb-rt").show();
+                        $(".bottom-part").show();
+                        $(".ftl_page").show().siblings("div").hide();
+                    } else if (type === 'blink') {
+                        $("#blink").attr('src', 'https://blink.csdn.net/frame');
+                        __agg_pc__.initIframeBlinkHeight();
+                        $(".ag-tb-rt").hide();
+                        $(".bottom-part").hide();
+                        $(".ftl_page").hide();
+                        $(".ant_page").hide();
+                    } else if (type === 'download') {
+                        if (!self.isGetDownloadList) {
+                            self.isGetDownloadList = true;
+                            $(".wrap-download").html('');
+                            self.getDownloadListFirst();
+                        }
+                        $(".ag-tb-rt").show();
+                        $(".bottom-part").show();
+                        $(".ant_page").show().siblings("div").hide();
+                    } else if (type === 'qa') {
+                        if (!self.isGetQaList) {
+                            self.isGetQaList = true;
+                            $(".wrap-qa").html('');
+                            self.getQAListFirst();
+                        }
+                        $(".ag-tb-rt").show();
+                        $(".bottom-part").show();
+                        $(".ant_page").show().siblings("div").hide();
+                    }
+                    tab_bd.eq(that.index()).addClass("active").siblings("div.tab-bd").removeClass("active");
+                })
+
+                let btn_link = $(".ag-tab-bar").find(".icon-link");
+                btn_link.on('click', function () {
+                    window.open('https://so.csdn.net/search?mode=1&q=' + mod_keywords + '&spm=1000.2123.3001.5142', '_self');
+                });
+
+                let btn_ask = $(".btn-ask");
+                btn_ask.on('click', function () {
+                    let UserName = self.getCookieByKey("UserName");
+                    if (UserName != null) {
+                        window.open('https://ask.csdn.net/?word=' + mod_keywords, '_blank');
+                    } else {
+                        window.csdn.loginBox.show();
+                    }
+                })
+
+
+                $(".right-special-column .rsc-subscible").on('click', function () {
+                    let userName = getCookie('UserName')
+                    if (!userName) {
+                        window.csdn.loginBox.show();
+                        return
+                    }
+
+                    let title = $(this).prev().text();
+                    // 收藏
+                    var params = {
+                        'url': window.location.href,         // 访问来源地址 必传
+                        'title': title,      // 访问收藏标题 必传ß
+                        'description': '', //访问收藏描述
+                        'author': userName,
+                        'source_id': 1,           // 访问来源项目标识id 必传
+                        'source': 'GATHER'
+                    };
+                    window.csdn.collectionBox.show(params);
+                })
+
+                $(".right-special-column").on('click', 'img', function () {
+                    var that = $(this);
+                    var url = that.attr('data-url');
+                    window.open(url, '_blank');
+                });
+
+                $(".right-special-column").on('click', 'span.rsc-name', function () {
+                    var that = $(this);
+                    var url = that.attr('data-url');
+                    window.open(url, '_blank');
+                });
+
+            },
+            getCookieByKey: function (key) {
+                var cookie = '';
+                var cookieStr = document.cookie || cookie;
+                var cookieObj = {};
+                cookieStr.split(';').forEach(function (value) {
+                    var arr = value.split('=');
+                    cookieObj[$.trim(arr[0])] = $.trim(arr[1]);
+                })
+                return cookieObj[key] || null;
+            },
+            getBrandDataById: function (id, cb) {
+                //528右侧广告位， 529Top广告位
+                $.get('/get_ad_info?ad_id=' + id, function (res) {
+                    if (res.code == 200) {
+                        if (res.data && res.data.con && res.data.status) {
+                            cb(res);
+                        }
+                    } else {
+                        console.log(res.msg);
+                    }
+                })
+            },
+            bindTagEvent: function () {
+                $(".qa-list").on('click', 'i.qa-tag', function () {
+                    var that = $(this);
+                    var val = that.text();
+                    if (val) {
+                        window.open('https://so.csdn.net/so/search/s.do?q=' + val, '_blank');
+                    }
+                });
+
+                setTimeout(function () {
+                    window.csdn.report.viewCheck({'curl': location.href});
+                }, 500)
+            },
+            getQAList: function (pageIndex) {
+                let self = this;
+                //http://local.java.csdn.net:9090
+                $.ajax({
+                    url: '/gather/search_ask?platform=pc&p=' + pageIndex + '&query=' + mod_keywords + '&encodestr=' + encodestr,
+                    type: 'GET',
+                    success: function (res) {
+                        if (res.code == 200 && res.data.items.length) {
+                            self.isAjax = true;
+                            self.isGetQaList = false;
+                            var new_data = dwd(res.data, '3001.5561');
+                            var html = template("tpl_qa", new_data);
+                            $(".wrap-qa").html(html);
+                            self.bindTagEvent();
+                            self.createPagination(res);
+                        } else {
+                            $(".wrap-qa .qa-no-data").removeClass("hide");
+                        }
+                    },
+                    error: function (err) {
+                        $(".wrap-qa .qa-no-data").removeClass("hide");
+                    }
+                });
+            },
+            getQAListFirst: function () {
+                let self = this;
+                if(ask_data.code == 200) {
+                    self.isAjax = true;
+                    self.isGetQaList = false;
+                    var new_data = dwd(ask_data.data, '3001.5561');
+                    var html = template("tpl_qa", new_data);
+                    $(".wrap-qa").html(html);
+                    self.bindTagEvent();
+                    self.createPagination(ask_data);
+                } else {
+                    self.getQAList(1);
+                }
+            },
+            getDownloadList: function (pageIndex) {
+                let self = this;
+                //http://local.java.csdn.net:9090
+                $.ajax({
+                    url: '/gather/search_download?platform=pc&p=' + pageIndex + '&query=' + mod_keywords + '&encodestr=' + encodestr,
+                    type: 'GET',
+                    success: function (res) {
+                        if (res.code == 200 && res.data.items.length) {
+                            self.isAjax = true;
+                            self.isGetDownloadList = false;
+                            var new_data = dwd(res.data, '3001.5560');
+                            var html = template("tpl_qa", new_data);
+                            $(".wrap-download").html(html);
+                            self.bindTagEvent();
+                            self.createPagination(res);
+                        } else {
+                            $(".wrap-download .qa-no-data").removeClass("hide");
+                        }
+                    },
+                    error: function (err) {
+                        $(".wrap-download .qa-no-data").removeClass("hide");
+                    }
+                });
+            },
+            getDownloadListFirst: function () {
+                let self = this;
+                if(download_data.code == 200) {
+                    self.isAjax = true;
+                    self.isGetDownloadList = false;
+                    var new_data = dwd(download_data.data, '3001.5560');
+                    var html = template("tpl_qa", new_data);
+                    $(".wrap-download").html(html);
+                    self.bindTagEvent();
+                    self.createPagination(download_data);
+                } else {
+                    self.getDownloadList(1);
+                }
+            },
+            dealWithPageData: function (res) {
+                if (res && res.code == 200) {
+                    return {
+                        data: {
+                            pageNum: res.pageNum,
+                            pages: res.total_page,
+                            pageSize: res.page_size,
+                            totalNum: res.totalNum,
+                            pageList: res.page_list
+                        }
+                    };
+                }
+            },
+            createPagination: function (res) {
+                let self = this;
+                let tpl_data = this.dealWithPageData(res);
+                let tpl_page = template("tpl_page", tpl_data);
+                let ant_page = $(".wrap-pagination .ant_page");
+                let type = $(".tab-hd-item.active").attr('type');
+                ant_page.removeClass("hide").html(tpl_page);
+
+
+                //页码
+                $(".ant_page .btn_normal").on('click', function () {
+                    let that = $(this);
+                    let curr = that.attr('page_num');
+                    that.addClass("active").siblings("a").removeClass("active");
+                    if (curr && self.isAjax) {
+                        self.isAjax = false;
+                        if (type === 'download') {
+                            self.getDownloadList(curr);
+                        } else {
+                            self.getQAList(curr);
+                        }
+
+                    }
+                });
+
+                //上一页
+                $(".ant_page .btn-prev").on('click', function () {
+                    let curr = $(this).attr('page_num');
+                    if (curr && self.isAjax) {
+                        self.isAjax = false;
+                        if (type === 'download') {
+                            self.getDownloadList(curr);
+                        } else {
+                            self.getQAList(curr);
+                        }
+                    }
+                });
+
+                //下一页
+                $(".ant_page .btn-next").on('click', function () {
+                    let curr = $(this).attr('page_num');
+                    if (curr && self.isAjax) {
+                        self.isAjax = false;
+                        if (type === 'download') {
+                            self.getDownloadList(curr);
+                        } else {
+                            self.getQAList(curr);
+                        }
+                    }
+                });
+            }
+        }
+        __agg_pc__.init();
+
+    })($)
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        window.csdn.cse = null;
+        var _types = {
+            "codes_snippet": '',
+            "blog": "blog",
+            "discuss": "bbs",
+            "doc": "download",
+            "news": "geek",
+            "course": "edu",
+            "gitchat": "gitchat",
+            "ask": "ask"
+        }
+        var _csdnDataObj = {};
+        var _fn = {
+            _CFG: {
+                API_URL: '/api/v1/search',
+                js_insert_first: insert_baidu_first,
+                js_insert_count: insert_baidu_count,
+            },
+            uniqueBaidu: function (data) {
+                var csdnObjKeys = [];
+                var hasOwnProperty = Object.prototype.hasOwnProperty
+                for (var prop in _csdnDataObj) {
+                    if (hasOwnProperty.call(_csdnDataObj, prop)) csdnObjKeys.push(prop);
+                }
+                var csdnObjKeysLink = csdnObjKeys.map(function (v) {
+                    return v.split('?')[0]
+                });
+                return data.filter(function (v) {
+                    try {
+                        return csdnObjKeysLink.indexOf(v.linkUrl.split('?')[0]) < 0;
+                    } catch (e) {
+                        return false
+                    }
+                })
+            },
+            distinct: function (data) {
+                return data.filter(function (obj) {
+                    return !_csdnDataObj[obj['linkUrl']];
+                })
+            },
+            getIdByUrl: function (url) {
+                var id = ""
+                if (url == null || url == undefined || url == "") {
+                    return "";
+                }
+                if (url.indexOf("?") > -1) {
+                    url = url.substring(0, url.indexOf("?"));
+                }
+                if (url.endsWith("/")) {
+                    url = url.substring(0, url.length - 1);
+                }
+                id = url.substring(url.lastIndexOf("/") + 1);
+                if (id.length > 0) {
+                    var regEx = "[0-9]+";
+                    id.replace(regEx, function () {
+                        id = arguments[0];
+                    })
+                }
+                return id;
+            },
+            /**
+             * 数据按 每组sublength个分组
+             * @param {Array} array 源数据
+             * @param {Number} subLength 每组多少个
+             * @return {Boolean} isDom 如果是DOM,则每组为包裹Div
+             */
+            group: function (array, subLength, isDom) {
+                if (Object.prototype.toString.call(array) !== "[object Array]" || typeof subLength !== 'number') {
+                    return [];
+                }
+                var index = 0;
+                var newArray = [];
+
+                while (index < array.length) {
+                    newArray.push(array.slice(index, index += subLength));
+                }
+                if (isDom) {
+                    newArray = newArray.map(function (childrenNodes) {
+                        var $frag = $('<div></div>');
+                        childrenNodes.forEach(function (curNode) {
+                            $frag.append(curNode)
+                        })
+                        return $frag
+                    })
+                }
+                return newArray
+            },
+            baiduDOMHandle: function (pageNo, data, num, type, keyword) {
+                var $data = _fn.group(data, num);
+                var domArr = [];
+                var utm_term = encodeURI(keyword);//当前搜索关键字
+                var requestId = "baidu_js";
+                for (var i in data) {
+                    var item = data[i];
+                    if (item.dispUrl) {
+                        if (item.dispUrl.indexOf('gitchat') > -1) {
+                            item.requestId = requestId
+                            item.bizId = 101
+                            item.type = "gitchat"
+                        } else if (item.dispUrl.indexOf('blog') > -1) {
+                            item.flagIcon = 'flag_icon1'
+                            item.tip = '博客'
+                            item.requestId = requestId
+                            item.bizId = 102
+                            item.type = "blog"
+                        } else if (item.dispUrl.indexOf('download') > -1) {
+                            item.flagIcon = 'flag_icon6'
+                            item.tip = '下载'
+                            item.requestId = requestId
+                            item.bizId = 103
+                            item.type = "download"
+                        } else if (item.dispUrl.indexOf('bbs') > -1 || item.dispUrl.indexOf('forum') > -1) {
+                            item.flagIcon = 'flag_icon2'
+                            item.tip = '论坛'
+                            item.requestId = requestId
+                            item.bizId = 104
+                            item.type = "bbs"
+                        } else if (item.dispUrl.indexOf('edu') > -1) {
+                            item.flagIcon = 'flag_icon3'
+                            item.tip = '学院'
+                            item.requestId = requestId
+                            item.bizId = 105
+                            item.type = "course"
+                        } else if (item.dispUrl.indexOf('ask') > -1) {
+                            item.flagIcon = 'flag_icon4'
+                            item.tip = '问答'
+                            item.requestId = requestId
+                            item.bizId = 106
+                            item.type = "ask"
+                        } else {
+                            item.flagIcon = ''
+                            item.tip = ''
+                            item.requestId = ''
+                            item.bizId = -1
+                            item.type = ''
+                        }
+                    }
+
+                    var strategy = item['strategy'] ? item['strategy'].toUpperCase() : ("2~" + type + "~sobaiduweb~default")
+
+                    var utm_medium = 'distribute.pc_aggpage_search_result.none-task-' + item.type + '-' + strategy + "-" + i + "-" + _fn.getIdByUrl(item.linkUrl);
+                    var objs = {
+                        mod: "popu_876",
+                        dest: item.linkUrl.indexOf('?') > -1 ? item.linkUrl + '&utm_term=' + utm_term + '&utm_medium=' + utm_medium : item.linkUrl + '?utm_term=' + utm_term + '&utm_medium=' + utm_medium + '&spm=3001.4430',
+                        strategy: strategy,
+                        index: i + "",
+                        spm: "3001.4430",
+                        request_id: item['requestId'] + "",
+                        biz_id: item['bizId'] + "",
+                        ops_request_misc: ""
+                    }
+                    var jsonData = JSON.stringify(objs);
+                    var data_report_query = ' data-report-query=""';
+                    var data_report_click = ' data-report-click=' + jsonData;
+                    var data_report_view = ' data-report-view=' + jsonData;
+                    if (item.title) {
+                        var htmlStr = '<li class="baidu_list">\n' +
+                            '                    <div class="blog-title">\n' +
+                            '                         <a href="' + objs.dest + '"  ' + data_report_query + data_report_click + data_report_view + ' target="_blank" class="blog-title">\n' +
+                            '                                    <h2>' + item.title + '</h2>\n' +
+                            '                                </a>\n' +
+                            '                                <span class="update-time"></span>\n' +
+                            '                     </div>\n' +
+                            '                     <div class="description">\n' +
+                            '                          <div class="desc-detail digest">' + item.abstract + '</div>\n' +
+                            '                          <div class="desc-detail content">\n' +
+                            '                                <div class="article_content">\n' +
+                            '                                        ' + item.abstract + '\n' +
+                            '                                </div>\n' +
+                            '                          </div>\n' +
+                            '                      </div>\n' +
+                            '           </li>'
+                    }
+                    domArr.push($(htmlStr))
+                }
+                return {
+                    data: $data,
+                    dom: _fn.group(domArr, num, true)
+                };
+            },
+            /**
+             * 百度数据穿插
+             * @param {Array} baiduData 百度的数据集合
+             * @param {Number} num 每组多少个
+             * @param {Boolean} flag 排序方式，是否百度数据在前
+             */
+            insertFunc: function (pagerNum, baiduData, num, flag, type, keyword) {
+                // 处理后的百度数据
+                var $baiduData = _fn.baiduDOMHandle(pagerNum, baiduData, num, type, keyword)
+                var $csdnDl = $(".wrap-main-list li[data-page='" + pagerNum + "']").not('.baidu_list')
+                var getLastChild = function () {
+                    var searchList = $(".wrap-main-list li[data-page='" + pagerNum + "']")
+                    // 防止出现 678 12345, 应该为
+                    if (searchList.eq($csdnDl.length).length) {
+                        return searchList.eq(searchList.length - 1)
+                    } else {
+                        return $csdnDl.eq($csdnDl.length - 1)
+                    }
+                }
+                $baiduData.dom && $baiduData.dom.forEach(function (curBaiduGroup, index) {
+                    var insertDom = null;
+                    if (flag) { // 百度在前
+                        if (index === 0) {
+                            curBaiduGroup.children().insertBefore($csdnDl.eq(0));
+                        } else {
+                            insertDom = $csdnDl.length - num * index >= 0 ? $csdnDl.eq(index * num - 1) : getLastChild()
+                            curBaiduGroup.children().insertAfter(insertDom);
+                        }
+                    } else { // CSDN在前
+                        insertDom = $csdnDl.length - (index + 1) * num >= 0 ? $csdnDl.eq((index + 1) * num - 1) : getLastChild();
+                        curBaiduGroup.children().insertAfter(insertDom);
+                    }
+                })
+            },
+            baiduDataInsert: function (pageNo, data, keyword, type) {
+                type = type || "all";
+                data = data.filter(function (item) {
+                    if (!item.dispUrl) {
+                        item.dispUrl = ''
+                    }
+                    return item.dispUrl.indexOf('m.blog.csdn.net') === -1
+                });
+                _fn.insertFunc(pageNo, data, _fn._CFG.js_insert_count, _fn._CFG.js_insert_first, type, keyword)
+
+                setTimeout(function () {
+                    window.csdn && window.csdn.report && window.csdn.report.viewCheck()
+                }, 100)
+            },
+            loadBaiduData: function (keyword, domain, pageNo) {
+                if (isContainBaidu != "10") {
+                    _fn.setCsdnDataObj();
+                    console.log("baiduSearch: pageNo:" + pageNo + " keyword:" + keyword + " domain:" + domain);
+                    if (domain) {
+                        domain = _types[domain];
+                    } else {
+                        domain = null;
+                    }
+                    try {
+                        csdn.baiduSearch(keyword, function (data) {
+                            console.log(data);
+                            var newData = _fn.distinct(data);
+                            newData = _fn.uniqueBaidu(newData);
+                            _fn.baiduDataInsert(pageNo, newData, keyword, domain);
+                        }, domain, pageNo);
+                    } catch (e) {
+                        //console.log(e)
+                    }
+                }
+            },
+            setCsdnDataObj: function () {
+                $('.wrap-main-list .main-ul li').each(function () {
+                    var url = $(this).find('a.blog-title').attr('href')
+                    if (url) {
+                        _csdnDataObj[url] = true;
+                    }
+                    window.listUrls = _csdnDataObj;
+                });
+            }
+        }
+
+
+        let timer = null;
+        let count = 0;
+        timer = setInterval(function () {
+            count++;
+            let _cse = csdn.cse;
+            let _ssr = csdn.cse.setSearchRange;
+            if ((_cse && _ssr) || count > 10) {
+                clearInterval(timer)
+                _fn.loadBaiduData(mod_keywords, '', mod_page);
+            }
+        }, 1000)
+
+        window.fillColor = function (color) {
+            color = color || '#44ff8f'
+            $("li.baidu_list").each(function (index, item) {
+                $(item).css("background", color)
+            })
+        }
+        // 右侧 侧边栏滑动到不可见，固定 pund推荐，可见则 隐藏固定的pund推荐
+       function intersectionRightAsideToBottom(){
+        try{
+        if(!window.IntersectionObserver)  return
+        var  $pudn_recommend = $(".pudn-recommend")
+        if($pudn_recommend.length === 0) return 
+        var $pudn_recommend_clone = $pudn_recommend.clone().hide().css({position:"fixed",top:'48px'});
+        var $con_r_tag  =   $(".con-r-tag");
+        $con_r_tag.append($pudn_recommend_clone);
+
+        var dom_bottom_part = $('.con-r-tag .bottom-part')[0]
+        if( !dom_bottom_part) return
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (element, index) {
+              if (element.isIntersecting) {
+                //出现 
+                $pudn_recommend_clone.fadeOut(300)
+              } else {
+               //不可见且dom_bottom_part滑到底部了
+                var rect =dom_bottom_part.getBoundingClientRect()
+                if(rect.top <= -rect.height){
+                    $pudn_recommend_clone.fadeIn(300)
+                }
+              }
+            })
+          },
+          {
+            root: null,
+            threshold: [0, 1]
+          }
+        )
+        observer.observe(dom_bottom_part)
+       }catch(e){
+           console(e)
+       }
+    }
+       intersectionRightAsideToBottom()
+    })
+
+</script>
+</body>
+</html>
